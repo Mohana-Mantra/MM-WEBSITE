@@ -1,6 +1,24 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/src\app\page.tsx
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp style.css $DEPLOYPATH
+
+
+version: 1
+
+# Commands to run during installation
+commands:
+  install:
+    - cd src/app
+    - npm install
+
+# Commands to run during build
+  build:
+    - cd src/app
+    - npm run build
+
+# Commands to deploy the built application
+  deploy:
+    - rsync -a src/app/.next ../
+    - rsync -a src/app/public/ ../public/
+    - rsync -a src/app/node_modules ../node_modules/
+    - rsync -a src/app/package.json ../package.json
+    - rsync -a src/app/next.config.js ../next.config.js
+
+
