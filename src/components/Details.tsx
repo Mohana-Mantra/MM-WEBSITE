@@ -60,7 +60,7 @@ function Details() {
                                     fill="white"
                                 />
                             </svg>
-                            <p className="font-bold text-lg">MBU,RANGAMPETA</p>
+                            <p className="font-bold text-lg">MBU</p>
                         </div>
                     </motion.div>
 
